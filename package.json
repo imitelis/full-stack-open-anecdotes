@@ -1,5 +1,5 @@
 {
-  "name": "fullstackopen-cicd",
+  "name": "fullstackopen-anecdotes",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
