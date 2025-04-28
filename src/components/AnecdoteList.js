@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import { voteAnecdote } from '../reducers/anecdoteReducer'
+import { voteAnecdote, deleteAnecdote } from '../reducers/anecdoteReducer'
 import { setNotification } from '../reducers/notificationReducer'
 
 const AnecdoteList = (props) => {
@@ -8,10 +8,16 @@ const AnecdoteList = (props) => {
   const anecdotes = props.anecdotes
 
   const vote = (id) => {
-    console.log('vote', id)
+    // console.log('vote', id)
     const votedAnecdote = anecdotes.find(anecdote => anecdote.id === id)
     props.voteAnecdote(id, votedAnecdote)
     props.setNotification(`anecdote '${votedAnecdote.content}' was voted`, 5)
+  }
+
+  const remove = (id) => {
+    console.log('delete', id)
+    props.deleteAnecdote(id)
+    props.setNotification(`anecdote was deleted`, 5)
   }
 
   return (
@@ -25,6 +31,8 @@ const AnecdoteList = (props) => {
         <div>
           has {anecdote.votes} votes {' '}
           <button onClick={() => vote(anecdote.id)}>vote</button>
+          {' '}
+          <button onClick={() => remove(anecdote.id)}>delete</button>
         </div>
       </div>
     )}
@@ -49,6 +57,9 @@ const mapDispatchToProps = dispatch => {
   return {
     voteAnecdote: (id, anecdote) => {
       dispatch(voteAnecdote(id, anecdote))
+    },
+    deleteAnecdote: (id, anecdote) => {
+      dispatch(deleteAnecdote(id, anecdote))
     },
     setNotification: (content, time) => {
       dispatch(setNotification(content, time))

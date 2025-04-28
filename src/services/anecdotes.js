@@ -25,6 +25,14 @@ const voteFor = async (id, votedObject) => {
     )
 }
 
-const anecdoteService = { getAll, createNew, voteFor }
+const deleteOne = async (id) => {
+    const deleteUrl = `${baseUrl}/${id}`
+    const request = axios.delete(deleteUrl);
+    return request.then((response) => {
+        return response.data;
+    });
+}
+
+const anecdoteService = { getAll, createNew, voteFor, deleteOne }
 
 export default anecdoteService

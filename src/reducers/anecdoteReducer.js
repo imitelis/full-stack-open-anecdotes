@@ -48,4 +48,12 @@ export const voteAnecdote = (id, votedAnecdote) => {
   }
 }
 
+export const deleteAnecdote = (id) => {
+  return async dispatch => {
+    await anecdoteService.deleteOne(id)
+    const anecdotes = await anecdoteService.getAll()
+    dispatch(setAnecdotes(anecdotes))
+  }
+}
+
 export default anecdoteSlice.reducer

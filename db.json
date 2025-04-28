@@ -33,17 +33,12 @@
     {
       "content": "My first anecdote",
       "id": "1698",
-      "votes": 1
+      "votes": 2
     },
     {
       "content": "Testing anecdote",
       "id": "12198",
       "votes": 1
-    },
-    {
-      "content": "Hallo there",
-      "id": "44962",
-      "votes": 0
     }
   ]
 }
