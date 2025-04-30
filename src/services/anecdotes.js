@@ -2,7 +2,7 @@ import axios from 'axios'
 
 import { asObject } from '../reducers/anecdoteReducer'
 
-const baseUrl = 'http://localhost:3001/anecdotes'
+const baseUrl = process.env.REACT_APP_API_URL;
 
 const getAll = async () => {
     const response = await axios.get(baseUrl)
