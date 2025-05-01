@@ -9,7 +9,7 @@
 # production
 /build
 
-# misc
+# secrets
 .env
 
 npm-debug.log*
