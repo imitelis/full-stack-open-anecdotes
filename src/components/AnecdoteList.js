@@ -15,7 +15,7 @@ const AnecdoteList = (props) => {
   }
 
   const remove = (id) => {
-    console.log('delete', id)
+    // console.log('delete', id)
     props.deleteAnecdote(id)
     props.setNotification(`anecdote was deleted`, 5)
   }
